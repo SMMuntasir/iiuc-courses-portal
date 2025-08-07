@@ -1,50 +1,54 @@
 import React, { useContext, useEffect, useState } from 'react';
-import homeBg from './assets/Image/Home.jpg';
+import homeBg from './assets/Image/home com.jpg';
 import homePerson from './assets/Image/Home-person.png';
-import EnglishI from './assets/Icons/english.png';
-import SpainI from './assets/Icons/icons8-spain-50.png';
-import ArabI from './assets/Icons/icons8-saudi-arabia-50.png';
-import ChinaI from './assets/Icons/icons8-china-50.png';
-import PortugalI from './assets/Icons/icons8-portugal-50.png';
-import RussiaI from './assets/Icons/icons8-russian-federation-50.png';
-import FranceI from './assets/Icons/icons8-french-flag-50.png';
-import JapanI from './assets/Icons/icons8-japan-50.png';
-import GermanI from './assets/Icons/icons8-germany-50.png';
+import DSA from './assets/Icons/dsa.png';
+import OOP from './assets/Icons/c++.png';
+import ArabI from './assets/Icons/computer_architecture.png';
+import ChinaI from './assets/Icons/dbms.png';
+import PortugalI from './assets/Icons/c.png';
+import RussiaI from './assets/Icons/cyber_securitypng.png';
+import FranceI from './assets/Icons/cloud.png';
+import JapanI from './assets/Icons/mobile_dev.png';
+import GermanI from './assets/Icons/python.png';
 import RightArrow from './assets/Icons/right-arrow.png';
 import { NavLink } from 'react-router-dom';
 import AuthContext from './Auth/AuthContext';
-import { animate, motion, useMotionValue, useTransform,useScroll,useSpring } from "framer-motion"
+import { animate, motion, useMotionValue, useTransform, useScroll, useSpring } from "framer-motion"
 import service from './assets/Image/AboutService.jpg'
 import { view } from 'motion/react-client';
+import Button from './button';
+import RotatingText from './text animation/RotatingText';
+
+
 // import './Gallery.css';
 
 
 // npm run dev
 
 const Home = () => {
-      const { scrollYProgress } = useScroll();
-  const rotate = useTransform(scrollYProgress, [0, 1], ['0turn', '1turn']);
-  const smoothedRotate = useSpring(rotate, { stiffness: 50, damping: 20 });
+    const { scrollYProgress } = useScroll();
+    const rotate = useTransform(scrollYProgress, [0, 1], ['0turn', '1turn']);
+    const smoothedRotate = useSpring(rotate, { stiffness: 50, damping: 20 });
 
-  useEffect(() => {
-    const f = (k) => {
-      if (Math.abs(k) > 0.5) {
-        const docHeight = document.documentElement.offsetHeight;
-        const winHeight = window.innerHeight;
-        const scrollTarget = 0.5 * (k - Math.sign(k) + 1) * (docHeight - winHeight);
-        window.scrollTo(0, scrollTarget);
-      }
-    };
+    useEffect(() => {
+        const f = (k) => {
+            if (Math.abs(k) > 0.5) {
+                const docHeight = document.documentElement.offsetHeight;
+                const winHeight = window.innerHeight;
+                const scrollTarget = 0.5 * (k - Math.sign(k) + 1) * (docHeight - winHeight);
+                window.scrollTo(0, scrollTarget);
+            }
+        };
 
-    f(-1);
-    const handleScroll = () => {
-      const k = parseFloat(getComputedStyle(document.body).getPropertyValue('--k'));
-      f(k);
-    };
+        f(-1);
+        const handleScroll = () => {
+            const k = parseFloat(getComputedStyle(document.body).getPropertyValue('--k'));
+            f(k);
+        };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
 
     // return <motion.pre>{count}</motion.pre>
@@ -53,7 +57,7 @@ const Home = () => {
     // console.log(user)
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/tutors')
+        fetch('https://iiuc-courses-portal-1.onrender.com/tutors')
             .then(response => response.json())
             .then(data => setData(data))
             .catch(err => console.log(err));
@@ -87,47 +91,47 @@ const Home = () => {
 
     console.log([...data.slice(0, 20)])
     const animals = [
-  {
-    name: "Lion",
-    scientific: "Panthera leo",
-    img: "https://images.unsplash.com/photo-1583499871880-de841d1ace2a?h=900",
-    pos: "47% 35%",
-    author: "Clément Roy",
-    link: "https://unsplash.com/photos/lion-lying-on-brown-rock-MUeeyzsjiY8"
-  },
-  {
-    name: "Asiatic Elephant",
-    scientific: "Elephas maximus",
-    img: "https://images.unsplash.com/photo-1571406761758-9a3eed5338ef?h=900",
-    pos: "75% 65%",
-    author: "Alex Azabache",
-    link: "https://unsplash.com/photos/shallow-focus-photo-of-black-elephants-hZhhVLLKJQ4"
-  },
-  {
-    name: "Zebra",
-    scientific: "Equus quagga",
-    img: "https://images.unsplash.com/photo-1577985051160-f2d62d0f3584?h=900",
-    pos: "40% 70%",
-    author: "Paul Gilmore",
-    link: "https://unsplash.com/photos/zebra-1pH7Zz9Y2fM"
-  },
-  {
-    name: "Giraffe",
-    scientific: "Giraffa camelopardalis",
-    img: "https://images.unsplash.com/photo-1608032071568-d83305e20a97?h=900",
-    pos: "50% 30%",
-    author: "Alexander Strachan",
-    link: "https://unsplash.com/photos/photo-of-giraffe-XpMVAZ5QxZk"
-  },
-  {
-    name: "Cheetah",
-    scientific: "Acinonyx jubatus",
-    img: "https://images.unsplash.com/photo-1608531973256-f5641c4c2b48?h=900",
-    pos: "60% 55%",
-    author: "Karl Lee",
-    link: "https://unsplash.com/photos/cheetah-portrait-axQ0nV1Jc-8"
-  }
-];
+        {
+            name: "Lion",
+            scientific: "Panthera leo",
+            img: "https://images.unsplash.com/photo-1583499871880-de841d1ace2a?h=900",
+            pos: "47% 35%",
+            author: "Clément Roy",
+            link: "https://unsplash.com/photos/lion-lying-on-brown-rock-MUeeyzsjiY8"
+        },
+        {
+            name: "Asiatic Elephant",
+            scientific: "Elephas maximus",
+            img: "https://images.unsplash.com/photo-1571406761758-9a3eed5338ef?h=900",
+            pos: "75% 65%",
+            author: "Alex Azabache",
+            link: "https://unsplash.com/photos/shallow-focus-photo-of-black-elephants-hZhhVLLKJQ4"
+        },
+        {
+            name: "Zebra",
+            scientific: "Equus quagga",
+            img: "https://images.unsplash.com/photo-1577985051160-f2d62d0f3584?h=900",
+            pos: "40% 70%",
+            author: "Paul Gilmore",
+            link: "https://unsplash.com/photos/zebra-1pH7Zz9Y2fM"
+        },
+        {
+            name: "Giraffe",
+            scientific: "Giraffa camelopardalis",
+            img: "https://images.unsplash.com/photo-1608032071568-d83305e20a97?h=900",
+            pos: "50% 30%",
+            author: "Alexander Strachan",
+            link: "https://unsplash.com/photos/photo-of-giraffe-XpMVAZ5QxZk"
+        },
+        {
+            name: "Cheetah",
+            scientific: "Acinonyx jubatus",
+            img: "https://images.unsplash.com/photo-1608531973256-f5641c4c2b48?h=900",
+            pos: "60% 55%",
+            author: "Karl Lee",
+            link: "https://unsplash.com/photos/cheetah-portrait-axQ0nV1Jc-8"
+        }
+    ];
 
 
     return (
@@ -140,61 +144,34 @@ const Home = () => {
                 {/* Overlay */}
                 <div
                     className={`absolute inset-0 ${theme == false ? "bg-[#fbf8f6]" : "bg-[#121212]"
-                        } opacity-80`}
+                        } opacity-85`}
                 ></div>
+                {/* {text animation} */}
+
+
 
                 {/* Headline */}
                 <div>
                     <h1
-                        className={`md:ml-20 font-bold leading-snug md:text-5xl text-3xl absolute ${theme == false ? "text-black" : "text-white"
-                            } md:top-1/3`}
+                        className={`md:ml-20 font-bold leading-snug md:text-5xl text-3xl absolute ${theme == false ? "text-black" : "text-white"} md:top-1/3`}
                     >
-                        <motion.div
-                            className='inline-block'
-                            initial={{ opacity: 0, y: 100 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{
-                                duration: 0.5,
-                                delay: 0.4,
-                                type: 'tween'
-                            }}
-                        >
-                            Speak,
-                        </motion.div>
-                        <motion.div
-                        className='inline-block'
-                        initial={{ opacity: 0, y: 100 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{
-                            duration: 0.5,
-                            delay: 0.7,
-                            type: 'tween'
-                        }}
-                        >Learn,</motion.div>
-                        <motion.div
-                        className='inline-block'
-                        initial={{ opacity: 0, y: 100 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{
-                            duration: 0.5,
-                            delay: 1,
-                            type: 'tween'
-                        }}
-                        >Connect.</motion.div>
-                        <br />
-                        <motion.div
-                        className='inline-block'
-                        initial={{ opacity: 0, y: 100 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{
-                            duration: 0.5,
-                            delay: 1.3,
-                            type: 'tween'
-                        }}
-                        >Master Any Language with Ease!</motion.div>
-
-
+                        <span className="flex items-center gap-2">
+                            <span className="inline-block">Learn</span>
+                            <RotatingText
+                                texts={['Object-Oriented Programming', 'Computer Architecture', 'Data Structures and Algorithms', 'Operating Systems','Database Management Systems','Computer Networks']}
+                                mainClassName="inline-flex px-2 sm:px-2 md:px-3 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+                                staggerFrom={"last"}
+                                initial={{ y: "100%" }}
+                                animate={{ y: 0 }}
+                                exit={{ y: "-120%" }}
+                                staggerDuration={0.025}
+                                splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+                                transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                                rotationInterval={2000}
+                            />
+                        </span>
                     </h1>
+
                 </div>
 
                 {/* Content */}
@@ -218,7 +195,7 @@ const Home = () => {
                 </div>
             </div>
             {/* new */}
-          
+
 
 
             {/* States */}
@@ -313,15 +290,15 @@ const Home = () => {
 
                     {/* Language Cards */}
                     {[
-                        { name: "English", count: "120000", icon: EnglishI },
-                        { name: "Spanish", count: "95000", icon: SpainI },
-                        { name: "Arabic", count: "78000", icon: ArabI },
-                        { name: "Chinese", count: "103000", icon: ChinaI },
-                        { name: "Portuguese", count: "62000", icon: PortugalI },
-                        { name: "Russian", count: "87000", icon: RussiaI },
-                        { name: "French", count: "99000", icon: FranceI },
-                        { name: "Japanese", count: "72000", icon: JapanI },
-                        { name: "German", count: "85000", icon: GermanI },
+                        { name: "DSA", count: "120000", icon: DSA },
+                        { name: "OOP", count: "95000", icon: OOP },
+                        { name: "Architecture", count: "78000", icon: ArabI },
+                        { name: "Database", count: "103000", icon: ChinaI },
+                        { name: "Networks", count: "62000", icon: PortugalI },
+                        { name: "Security", count: "87000", icon: RussiaI },
+                        { name: "Cloud", count: "99000", icon: FranceI },
+                        { name: "Mobile Dev", count: "72000", icon: JapanI },
+                        { name: "AI", count: "85000", icon: GermanI },
                     ].map((language, index) => (
                         <NavLink key={index} to={`/find-tutors?Language=${language.name}`}>
                             <motion.div

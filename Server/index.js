@@ -47,8 +47,8 @@ async function run() {
     // await client.db("admin").command({ ping: 1 });
     // console.log("Pinged your deployment. You successfully connected to MongoDB!");
 
-    const database = client.db("Ass-11").collection("Ass-11");
-    const BookedTutors = client.db("Ass-11").collection("BookedTutors");
+    const database = client.db("IIUC-Course").collection("Ass-11");
+    const BookedTutors = client.db("IIUC-Course").collection("BookedTutors");
 
     app.get("/tutors", async (req, res) => {
       console.log(req.query.Language)

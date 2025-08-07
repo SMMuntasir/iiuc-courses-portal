@@ -10,7 +10,7 @@ const MyTutorials = () => {
     const { user } = useContext(AuthContext);
     const [myTutorials, setMyTutorials] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/myTutorials?email=${user.email}`)
+        fetch(`https://iiuc-courses-portal-1.onrender.com/myTutorials?email=${user.email}`)
             .then(response => response.json())
             .then(data => setMyTutorials(data))
     }, [myTutorials]);
@@ -26,7 +26,7 @@ const MyTutorials = () => {
         }).then((result) => {
 
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/myTutorials/${id}`, {
+                fetch(`https://iiuc-courses-portal-1.onrender.com/myTutorials/${id}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json'

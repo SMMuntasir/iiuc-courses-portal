@@ -6,7 +6,7 @@ import { div } from 'motion/react-client';
 
 
 const FindTutor = () => {
-    
+
     const Navigate = useNavigate();
     const handleSearch = (e) => {
         e.preventDefault();
@@ -27,8 +27,8 @@ const FindTutor = () => {
 
         // Use dynamic URL based on language
         const url = language
-            ? `http://localhost:5000/tutors?Language=${language}`
-            : `http://localhost:5000/tutors`;
+            ? `https://iiuc-courses-portal-1.onrender.com/tutors?Language=${language}`
+            : `https://iiuc-courses-portal-1.onrender.com/tutors`;
 
         fetch(url)
             .then(response => response.json())
@@ -42,10 +42,10 @@ const FindTutor = () => {
 
     return (
         <div className='relative'>
-            
+
             <div className='relative flex justify-center'>
                 <form onSubmit={handleSearch} className="input input-bordered flex items-center gap-2 md:w-[35rem]">
-                    <input name='search' type="text" className="grow" placeholder="Language" />
+                    <input name='search' type="text" className="grow" placeholder="Course" />
                     <button type="submit" className='btn bg-[#404040]'>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -60,9 +60,9 @@ const FindTutor = () => {
                     </button>
                 </form>
             </div>
-            
+
             <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1  md:mx-20 justify-items-center mt-20">
-                
+
                 {
                     tutors.map((tutor) => (
                         <motion.div
@@ -98,10 +98,14 @@ const FindTutor = () => {
                                 >
                                     <div className=''>
 
-                                        <h2 className="text-2xl font-bold mb-2">{tutor.name}</h2>
-                                        <p className="text-lg mb-1">Language: {tutor.language}</p>
-                                        <p className="text-lg mb-3">Reviews: ⭐⭐⭐⭐ {tutor.reviews}</p>
-
+                                        <h2 className="text-2xl font-bold mb-2">{tutor.subject_name}</h2>
+                                        <p className="text-lg mb-1">Lecturer : {tutor.course_teacher}</p>
+                                        <div className="grid grid-cols-2 gap-3 mb-3">
+                                            <button class="btn btn-active btn-neutral min-h-0 h-9"><img src="/src/assets/Icons/join.png" alt="" className='size-5'/>{tutor.students_joined} Joined</button>
+                                            <button class="btn btn-active btn-neutral min-h-0 h-9"><img src="/src/assets/Icons/lesson.png" alt="" className='size-5'/>{tutor.lessons}+ Lessons</button>
+                                            <button class="btn btn-active btn-neutral min-h-0 h-9"><img src="/src/assets/Icons/assignment.png" alt="" className='size-5'/>{tutor.assignments}+ Assignments</button>
+                                            <button class="btn btn-active btn-neutral min-h-0 h-9"><img src="/src/assets/Icons/project-management.png" alt="" className='size-5'/>{tutor.projects}+ Projects</button>
+                                        </div>
                                         {/* Details Button */}
                                         <NavLink to={`/tutor/${tutor._id}`}>
                                             <motion.button

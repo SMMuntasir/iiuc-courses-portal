@@ -39,7 +39,7 @@ const TutorDetail = () => {
             bookedEmail: user.email
         }
         // console.log(data);
-        fetch('http://localhost:5000/bookedTeacher', {
+        fetch('https://iiuc-courses-portal-1.onrender.com/bookedTeacher', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -68,58 +68,94 @@ const TutorDetail = () => {
     return (
 
 
-        <div className="card  shadow-xl md:p-16 p-4 rounded-lg lg:mx-40 my-10 md:mx-16 mx-2">
-            <div className="md:flex md:flex-row flex flex-col  ">
-                <div className='relative rounded-full'>
+        <div className="card  shadow-xl md:p-16 p-4 ">
+            <main className="course-main container mx-auto px-4 py-8">
 
-                    <img
-                        src={tutorT.photoURL}
-                        alt="TutorT"
-                        className="md:size-72 size-56  rounded-full ring-[5px] ring-offset-2 md:mx-0 mx-auto  ring-blue-950 object-cover lg:ml-10 "
-                    />
-                    <span className="size-10 text-center border-2 absolute bottom-10 right-0 bg-[#615f5f] p-1 text-white rounded-full">
-                        Hi
-                    </span>
-                </div>
-                <div className="lg:ml-20 md:ml-14 mt-10">
-                    <h1 className="text-4xl font-bold text-blue-700">{tutorT.name}</h1>
-                    <p className="text-gray-500 text-xl">Language : {tutorT.language}</p>
-                </div>
-            </div>
-            <h2 className="text-3xl font-semibold mt-14">Details</h2>
-            <div className="grid md:grid-cols-2 gap-3 grid-cols-1  mt-6  ">
-                <div className='flex flex-col'>
-                    <h2 className="text-2xl font-semibold bg-slate-500 rounded-md py-1 px-2   ">Language</h2>
-                    <p className='mt-2 text-xl'> {tutorT.language}</p>
-                    <h2 className="text-2xl font-semibold bg-slate-500 rounded-md py-1 px-2 mt-4">Experience</h2>
-                    <p className='mt-2 text-xl'> {tutorT.experience}</p>
-                    {tutorT.achievements ? <div>
-                        <h2 className="text-2xl font-semibold bg-slate-500 rounded-md py-1 px-2 ">Achievements</h2>
-                        <p> {tutorT.achievements}</p>
-                    </div> : null
-                    }
-                    <h2 className="text-2xl font-semibold bg-slate-500 rounded-md py-1 px-2 mt-4">Active Students</h2>
-                    <p className='mt-2 text-xl '>{tutorT.active_students}</p>
-                </div>
-                <div className='flex flex-col '>
-                    <h2 className="text-2xl font-semibold bg-slate-500 rounded-md py-1 px-2  ">Lessons</h2>
-                    <p className='mt-2 text-xl'> {tutorT.lessons}</p>
-                    <h2 className="text-2xl font-semibold bg-slate-500 rounded-md py-1 px-2 mt-4">Price</h2>
-                    <p className='mt-2 text-xl'> ${tutorT.price}</p>
-                    <h2 className="text-2xl font-semibold bg-slate-500 rounded-md py-1 px-2 mt-4">Reviews</h2>
-                    <p className='mt-2 text-xl'>{tutorT.reviews} Reviews</p>
-                </div>
+                {/* 1. Overview */}
+                <section className="overview mb-8 flex justify-between">
+                    <div>
 
-            </div>
-            <div className="mt-6 ">
+                        <h1 className="text-3xl font-bold">{tutorT.subject_name}</h1>
+                        <p className="mt-2 text-lg">Next Batch: August 26 – Join Now!</p>
+                        <div className="benefits flex space-x-4 mt-4">
+                            <span>73 Live Classes</span>
+                            <span>14 Projects</span>
+                            <span>307 Pre‑Recorded Videos</span>
+                        </div>
+                        {/* <button className="btn-primary mt-4">Enroll Now</button> */}
+                    </div>
+                    <div className="">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/ftKiHCDVwfA?si=b-OsH2TJvBHRo98n" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </section>
 
-                <div className="flex items-center">
-                    {/* <p className="text-yellow-500">{tutorT.reviews}</p> */}
+                {/* 2. Curriculum Highlights */}
+                <section className="curriculum mb-8">
+                    <h2 className="text-2xl font-semibold mb-4">What You'll Learn</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
-                </div>
-            </div>
+                        {/* Live Classes */}
+                        <div className="card p-4 border rounded-lg shadow-sm">
+                            <h3 className="text-lg font-bold mb-2">Live Classes</h3>
+                            <p>73 live sessions with industry experts to guide your learning journey.</p>
+                        </div>
+
+                        {/* Pre-recorded Videos */}
+                        <div className="card p-4 border rounded-lg shadow-sm">
+                            <h3 className="text-lg font-bold mb-2">Pre-recorded Videos</h3>
+                            <p>Access 307+ on-demand videos to learn at your own pace anytime.</p>
+                        </div>
+
+                        {/* Real-life Projects */}
+                        <div className="card p-4 border rounded-lg shadow-sm">
+                            <h3 className="text-lg font-bold mb-2">Real-life Projects</h3>
+                            <p>Work on 14 hands-on projects to solidify your understanding and build a portfolio.</p>
+                        </div>
+
+                        {/* Web Development with Python & Django */}
+                        <div className="card p-4 border rounded-lg shadow-sm">
+                            <h3 className="text-lg font-bold mb-2">Python & Django</h3>
+                            <p>Master full-stack web development using Python and the Django framework.</p>
+                        </div>
+
+                        {/* Frontend with React.js */}
+                        <div className="card p-4 border rounded-lg shadow-sm">
+                            <h3 className="text-lg font-bold mb-2">Frontend with React.js</h3>
+                            <p>Learn modern frontend development using React and Tailwind CSS.</p>
+                        </div>
+
+                        {/* Job Preparation & Freelancing */}
+                        <div className="card p-4 border rounded-lg shadow-sm">
+                            <h3 className="text-lg font-bold mb-2">Career Support</h3>
+                            <p>Get job interview training, freelancing tips, and marketplace readiness guidance.</p>
+                        </div>
+
+                        {/* Version Control with Git & GitHub */}
+                        <div className="card p-4 border rounded-lg shadow-sm">
+                            <h3 className="text-lg font-bold mb-2">Git & GitHub</h3>
+                            <p>Use Git & GitHub like a pro for version control and collaborative development.</p>
+                        </div>
+
+                        {/* Bonus: Data Structures & Algorithms */}
+                        <div className="card p-4 border rounded-lg shadow-sm">
+                            <h3 className="text-lg font-bold mb-2">DSA + Coding Practice</h3>
+                            <p>Improve problem-solving skills with Data Structures and Algorithm training.</p>
+                        </div>
+
+                        {/* Access to CodeMama Platform */}
+                        <div className="card p-4 border rounded-lg shadow-sm">
+                            <h3 className="text-lg font-bold mb-2">CodeMama Platform</h3>
+                            <p>Practice coding challenges and track progress on Ostad's exclusive CodeMama platform.</p>
+                        </div>
+                    </div>
+                </section>
+
+
+
+
+            </main>
             <div className="mt-6 flex justify-between ">
-                <button className="btn btn-primary w-full ring-offset-2 hover:ring-4" onClick={handleBook}>Book </button>
+                <button className="btn btn-primary w-full ring-offset-2 hover:ring-4" onClick={handleBook}>Enroll Now</button>
 
             </div>
 

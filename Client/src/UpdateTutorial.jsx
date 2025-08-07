@@ -14,7 +14,7 @@ const UpdateTutorial = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/tutor/${id}`)
+        fetch(`https://iiuc-courses-portal-1.onrender.com/tutor/${id}`)
             .then(response => response.json())
             .then(data => setTutorDetail(data))
     }, []
@@ -51,7 +51,7 @@ const UpdateTutorial = () => {
         }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/UpdateTutorials/${id}`, {
+                fetch(`https://iiuc-courses-portal-1.onrender.com/UpdateTutorials/${id}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
