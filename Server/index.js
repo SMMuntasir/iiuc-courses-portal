@@ -8,17 +8,17 @@ const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 // nodemon index.js
 
 //middleware
-app.use(cors({
-  origin:[
-    'http://localhost:5173',
-    'tutornest-fd03f.web.app',
-    'tutornest-fd03f.firebaseapp.com'
-  ],
-  credentials:true,
-}));
+app.use(cors());
 app.use(express.json());
 
-
+// {
+//   origin:[
+//     'http://localhost:5173',
+//     'tutornest-fd03f.web.app',
+//     'tutornest-fd03f.firebaseapp.com'
+//   ],
+//   credentials:true,
+// }
 
 //routes
 app.get('/', (req, res) => {
