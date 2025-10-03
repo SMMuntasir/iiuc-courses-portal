@@ -36,7 +36,7 @@ const TutorDetail = () => {
                     bookedEmail: user.email
                 };
 
-                fetch('http://localhost:5000/bookedTeacher', {
+                fetch('https://iiuc-courses-portal-3.onrender.com/bookedTeacher', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

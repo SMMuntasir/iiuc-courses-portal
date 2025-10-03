@@ -23,8 +23,8 @@ const FindTutor = () => {
     useEffect(() => {
         setLoading(true);
         const url = language
-            ? `http://localhost:5000/tutors?Language=${language}`
-            : `http://localhost:5000/tutors`;
+            ? `https://iiuc-courses-portal-3.onrender.com/tutors?Language=${language}`
+            : `https://iiuc-courses-portal-3.onrender.com/tutors`;
 
         fetch(url)
             .then(response => response.json())
@@ -33,7 +33,7 @@ const FindTutor = () => {
                 setLoading(false);
             })
             .catch(err => {
-                console.log(err);
+                // console.log(err);
                 setTutors([]);
                 setLoading(false);
             });

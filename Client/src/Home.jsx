@@ -51,7 +51,7 @@ const Home = () => {
     }, []);
 
     useEffect(() => {
-        fetch('http://localhost:5000/tutors')
+        fetch('https://iiuc-courses-portal-3.onrender.com/tutors')
             .then(response => response.json())
             .then(data => {
                 if (Array.isArray(data)) {

@@ -8,7 +8,7 @@ const MyTutor = () => {
     const { user } = useContext(AuthContext);
     const [bookedTutors, setBookedTutors] = useState([]);
     const handleUpdate = (e) => {
-        fetch(`http://localhost:5000/myBookedTeacher?email=${e}`, {
+        fetch(`https://iiuc-courses-portal-3.onrender.com/myBookedTeacher?email=${e}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -34,7 +34,7 @@ const MyTutor = () => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myBookedTeacher?email=${user.email}`)
+        fetch(`https://iiuc-courses-portal-3.onrender.com/myBookedTeacher?email=${user.email}`)
             .then(response => response.json())
             .then(data => setBookedTutors(data))
     }, [user.email]);

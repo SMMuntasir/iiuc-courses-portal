@@ -123,7 +123,7 @@ const HeaderH = () => {
 
   return (
     <motion.div
-      className={`mx-auto my-4 w-[95%] max-w-7xl ${headerBg} ${textColor} border rounded-3xl shadow-2xl transition-all duration-500`}
+      className={`mx-auto my-4 w-[95%] max-w-7xl ${headerBg} ${textColor} border rounded-3xl shadow-2xl transition-all duration-500 z-50`}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
@@ -184,7 +184,7 @@ const HeaderH = () => {
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden">
-            <div className="dropdown dropdown-end">
+            <div className="dropdown dropdown-end ">
               <motion.div 
                 tabIndex={0} 
                 role="button" 
