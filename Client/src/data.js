@@ -1,3 +1,4 @@
+/*
 [
     {
       "name": "Luis Rodríguez",
@@ -347,3 +348,107 @@ Muntasir Sarwar MD
 
 Muntasir Sarwar
 "Hello, I am Muntasir Sarwar. I am eager to start teaching and share my knowledge with students interested in learning languages."
+/*
+
+client/
+├── public/
+│   ├── index.html
+│   ├── favicon.ico
+│   └── images/
+│       ├── hero/
+│       ├── projects/
+│       └── awards/
+├── src/
+│   ├── components/
+│   │   ├── common/
+│   │   │   ├── Header.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   ├── LoadingSpinner.jsx
+│   │   │   ├── SEOHead.jsx
+│   │   │   └── ThemeToggle.jsx
+│   │   ├── layout/
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── Sidebar.jsx
+│   │   │   └── Layout.jsx
+│   │   ├── ui/
+│   │   │   ├── Button.jsx
+│   │   │   ├── Modal.jsx
+│   │   │   ├── ImageGallery.jsx
+│   │   │   ├── ContactForm.jsx
+│   │   │   └── ProjectCard.jsx
+│   │   └── animations/
+│   │       ├── FadeInUp.jsx
+│   │       ├── ParallaxEffect.jsx
+│   │       └── ScrollAnimations.jsx
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   ├── About.jsx
+│   │   ├── Projects.jsx
+│   │   ├── ProjectDetail.jsx
+│   │   ├── Services.jsx
+│   │   ├── Awards.jsx
+│   │   ├── Contact.jsx
+│   │   └── NotFound.jsx
+│   ├── hooks/
+│   │   ├── useApi.js
+│   │   ├── useIntersectionObserver.js
+│   │   ├── useLocalStorage.js
+│   │   └── useTheme.js
+│   ├── utils/
+│   │   ├── api.js
+│   │   ├── constants.js
+│   │   ├── helpers.js
+│   │   └── validations.js
+│   ├── context/
+│   │   ├── ThemeContext.jsx
+│   │   └── ProjectContext.jsx
+│   ├── styles/
+│   │   ├── globals.css
+│   │   └── components.css
+│   ├── App.jsx
+│   ├── App.css
+│   └── main.jsx
+├── package.json
+├── tailwind.config.js
+├── vite.config.js
+└── .env.local
+
+
+server/
+├── config/
+│   ├── database.js
+│   ├── cloudinary.js
+│   └── cors.js
+├── controllers/
+│   ├── projectController.js
+│   ├── contactController.js
+│   ├── awardController.js
+│   ├── serviceController.js
+│   └── authController.js
+├── models/
+│   ├── Project.js
+│   ├── Contact.js
+│   ├── Award.js
+│   ├── Service.js
+│   └── User.js
+├── routes/
+│   ├── projectRoutes.js
+│   ├── contactRoutes.js
+│   ├── awardRoutes.js
+│   ├── serviceRoutes.js
+│   └── authRoutes.js
+├── middleware/
+│   ├── auth.js
+│   ├── errorHandler.js
+│   ├── upload.js
+│   └── validation.js
+├── utils/
+│   ├── sendEmail.js
+│   ├── generateToken.js
+│   └── imageUpload.js
+├── uploads/
+├── server.js
+├── package.json
+└── .env
+
+*/

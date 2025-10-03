@@ -54,7 +54,7 @@ const router = createBrowserRouter([
       {
         path:"/tutor/:id",
         element:<PrivateRoute><TutorDetail></TutorDetail></PrivateRoute>,
-        loader: ({params})=>fetch(`https://iiuc-courses-portal-1.onrender.com/tutor/${params.id}`)
+        loader: ({params})=>fetch(`http://localhost:5000/tutor/${params.id}`)
       },
       {
         path: "/my-booked-tutors",

@@ -43,7 +43,7 @@ const AddTutorial = () => {
 
         }
 
-        fetch('https://iiuc-courses-portal-1.onrender.com/myTutorials', {
+        fetch('http://localhost:5000/myTutorials', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
