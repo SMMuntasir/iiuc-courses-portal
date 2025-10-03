@@ -1,4 +1,4 @@
-```markdown
+
 # IIUC Courses Portal
 
 A modern, full-stack university course portal for browsing courses, managing tutorials, and delivering a seamless educational experience. Built with scalability, clean architecture, Firebase Auth, MongoDB, and a beautiful React front-end.
